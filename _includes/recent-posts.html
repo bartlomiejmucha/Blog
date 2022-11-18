@@ -1,0 +1,11 @@
+<div id="posts" class="row grid-container gutter-40">
+
+	{% for post in site.posts %}
+		{% if post.image %}
+			{% include post-summary-full.html hero-image=post.image hero-image-alt=post.image-alt url=post.url title=post.title date=post.date author=site.author summary=post.description %}
+		{% else %}
+			{% include post-summary-no-hero.html url=post.url title=post.title date=post.date author=site.author summary=post.description %}
+		{% endif %}
+	{% endfor %}
+
+</div>

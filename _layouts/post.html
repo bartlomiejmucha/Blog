@@ -1,0 +1,15 @@
+---
+layout: page
+---
+<div class="single-post mb-0">
+	<div class="entry clearfix">
+		<div class="entry-title">
+			<h2>{{ page.title }}</h2>
+		</div>
+		{% include post-meta.html date=page.date author=site.author %}
+		<div class="entry-content mt-0">
+			{{ content}}
+			{% include post-tags.html tags=page.tags %}
+		</div>
+	</div>
+</div>

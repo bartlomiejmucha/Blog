@@ -1,0 +1,11 @@
+<div id="tags" class="widget clearfix">
+	<h4>Tag Cloud</h4>
+	<div class="tagcloud">
+
+		{% assign sorted_tags = site.tags | sort %}
+		{% for tag in sorted_tags %}
+		<a href="#">{{ tag[0] }}</a>
+		{% endfor %}
+
+	</div>
+</div>

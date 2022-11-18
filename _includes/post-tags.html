@@ -1,0 +1,7 @@
+{% if include.tags %}
+<div class="tagcloud clearfix bottommargin">
+	{% for tag in include.tags %}
+	<a href="#">{{ tag }}</a>
+	{% endfor %}
+</div>
+{% endif %}

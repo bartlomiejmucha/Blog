@@ -1,0 +1,55 @@
+.full-header #logo
+{
+    border:none;
+}
+
+.postcontent.col-lg-9
+{
+    //padding-bottom: 0;
+}
+
+.entry 
+{
+    margin-bottom: 0;
+}
+
+.entry::after 
+{
+    background-color: inherit;
+}
+
+.single-post ul 
+{
+    padding-left: 2em;
+}
+
+.highlight 
+{
+    margin: 0 0 2rem 0;
+    background-color: #f8f8f8;
+    color: #555555;
+    padding: 0.5rem;
+}
+
+.highlight .highlight
+{
+    margin: 0;
+}
+
+figure.highlight pre, div.highlight pre
+{
+    margin-bottom: 0;
+}
+
+.video-wrapper
+{
+    width:100%;
+    position:relative;
+    padding:0;
+}
+
+.video-iframe
+{
+    width: 100vw;
+    height: calc(100vw/1.77777778);
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	{% include cookiebot.html %}
+	{% include google-analytics.html %}
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/swiper.min.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/dark.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/font-icons.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/animate.min.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/rouge-github.css' | relative_url }}" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}" type="text/css" />
+
+	{% if page.title %}
+	{% assign page_title = page.title | assign: ' | ' | assign: site.title %}
+	{% else %}
+	{% assign page_title = site.title %}
+	{% endif %}
+	<title>{{ page_title }}</title>
+	{% if page.description %}
+	{% assign page_description = page.description %}
+	{% else %}
+	{% assign page_description = site.description %}
+	{% endif %}
+	<meta name="description" content="{{ page_description }}" />
+	{% if page.tags %}
+		{% assign sorted_tags = page.tags | sort %}
+	{% else %}
+		{% assign sorted_tags = '' | split: ',' %}
+			{% for tag in site.tags %}
+			{% assign sorted_tags = sorted_tags | push: tag[0]%}
+			{% endfor % }
+		{% assign sorted_tags = sorted_tags | sort %}
+	{% endif %}
+    <meta name="keywords" content="{{ sorted_tags | join: ',' }}" />
+	<meta name="author" content="{{ page.author }}" />
+	<link rel="canonical" href="{{ page.url | absolute_url }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+
+	<meta property="og:title" name="og:title" content="{{ page_title }}" />
+    <meta property="og:description" name="og:description" content="{{ page_description }}" />
+    <meta property="og:url" name="og:url" content="{{ page.url | absolute_url}}" />
+	{% if page.image %}
+	<meta property="og:image" name="og:image" content="{{ page.image | absolute_url }}" />
+	{% endif %}
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:type" content="website" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@batlomiejmucha" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/assets/manifest.json' | relative_url }}">
+    <link rel="mask-icon" href="{{ '/assets/images/safari-pinned-tab.svg' | relative_url }}" color="#5bbad5">
+	<meta name="msapplication-config" content="{{ '/assets/browserconfig.json' | relative_url }}" />
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="stretched">
+
+	<div id="wrapper" class="clearfix">
+
+		{% include header.html %}
+
+		<section id="content">
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<!-- <div class="heading-block center">
+						<h1>Recent Articles</h1>
+					</div> -->
+
+					<div class="row gutter-40 col-mb-80">
+						
+						<div class="postcontent col-lg-9">
+							{{ content }}	
+						</div>
+						{% include sidebar.html %}
+						
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		{% include footer.html %}
+
+	</div>
+
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+	<script src="{{ '/assets/js/plugins.min.js' | relative_url }}"></script>
+
+	<script src="{{ '/assets/js/functions.js' | relative_url }}"></script>
+</body>
+</html>

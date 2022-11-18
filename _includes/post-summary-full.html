@@ -1,0 +1,12 @@
+<div class="entry col-12">
+	<div class="grid-inner row g-0">
+		<div class="col-md-4">
+			{% if include.hero-image %}
+			<a class="entry-image" href="{{ include.url | relative_url }}"><img src="{{ include.hero-image | relative_url }}" alt="{{ include.hero-image-alt}}"></a>
+			{% endif %}
+		</div>
+		<div class="col-md-8 ps-md-4">
+			{% include post-summary-internal.html url=include.url title=include.title date=include.date author=include.author summary=include.summary %}
+		</div>
+	</div>
+</div>
