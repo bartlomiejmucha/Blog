@@ -1,0 +1,9 @@
+---
+---
+User-agent: *
+Allow: /$
+Allow: /en/blog$
+Allow: /en/blog/
+Allow: /sitemap.xml
+Disallow: /
+Sitemap: {{ 'sitemap.xml' | absolute_url }}
